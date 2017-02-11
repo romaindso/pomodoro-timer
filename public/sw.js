@@ -5,9 +5,13 @@ self.addEventListener('install', function(e){
       console.log("Service Worker : cache app shell");
       return cache.addAll([
         '/',
+        '/BikeHorn.mp3',
         '/index.html',
         '/favicon.ico',
-        '/static/js/bundle.js'
+        '/manifest.json',
+        '/static/js/bundle.js',
+        './static/js/main.7dfe3326.js',
+        './static/css/main.17df7ccb.css'
       ])
       .then(() => {
         console.log("Service Worker : installed");
