@@ -6,7 +6,7 @@ import ActionPause from 'material-ui/svg-icons/av/pause';
 import ActionReset from 'material-ui/svg-icons/av/replay';
 import './Timer.css';
 
-const TIMER_25 = 1 * 60 * 1000;
+const TIMER_25 = 1 * 5 * 1000;
 
 export default class Timer extends Component {
 
@@ -23,9 +23,15 @@ export default class Timer extends Component {
   start(){
     if(!this._interval){
       this._interval = setInterval(() => {
-        this.setState({
-          time: this.state.time - 1000,
-        });
+        if(this.state.time !== 0){
+          this.setState({
+            time: this.state.time - 1000,
+          });
+        } else {
+          let audio = new Audio('BikeHorn.mp3');
+          audio.play();
+          this.clear();
+        }
       }, 1000);
     }
   }
@@ -60,23 +66,29 @@ export default class Timer extends Component {
 
     return (
       <div className="Timer">
-        <CircularProgress
-          mode="determinate"
-          value={completed}
-          size={200}
-          thickness={7}
-          color="#A12B12"
-        />
-        <p className="time">{this.addZero(minutes)}:{this.addZero(seconds)}</p>
-        <FloatingActionButton onClick={this.start} className="action-button">
+        <div className="clock-wrapper">
+          <CircularProgress
+            mode="determinate"
+            value={completed}
+            size={250}
+            thickness={10}
+            color="#A12B12"
+          />
+          <div className="time-wrapper">
+            <p>{this.addZero(minutes)}:{this.addZero(seconds)}</p>
+          </div>
+        </div>
+        <footer>
+        <FloatingActionButton onClick={this.start} className="action-button" backgroundColor="#A12B12">
           <ActionPlay />
         </FloatingActionButton>
-        <FloatingActionButton onClick={this.stop} className="action-button">
+        <FloatingActionButton onClick={this.stop} className="action-button" backgroundColor="#A12B12">
           <ActionPause />
         </FloatingActionButton>
-        <FloatingActionButton onClick={this.reset} className="action-button">
+        <FloatingActionButton onClick={this.reset} className="action-button" backgroundColor="#A12B12">
           <ActionReset />
         </FloatingActionButton>
+        </footer>
       </div>
     )
   }

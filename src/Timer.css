@@ -4,11 +4,26 @@
   margin-top: 50px;
 }
 
-.time {
-  position:relative;
-  top: -130px;
+.clock-wrapper{
+  position: relative;
+  width: 250px;
+  margin: 0 auto;
 }
 
-.action-button{
-  margin-right: 10px;
+.time-wrapper {
+  position: absolute;
+  width: 100%;
+  top: 20%;
+}
+
+.time-wrapper p {
+  font-size: 50px;
+}
+
+footer {
+  width: 250px;
+  margin: 25px auto 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 }
