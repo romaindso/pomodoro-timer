@@ -1,11 +1,20 @@
 import React, { Component } from 'react';
+import CircularProgress from 'material-ui/CircularProgress';
+import FloatingActionButton from 'material-ui/FloatingActionButton';
+import ActionPlay from 'material-ui/svg-icons/av/play-arrow';
+import ActionPause from 'material-ui/svg-icons/av/pause';
+import ActionReset from 'material-ui/svg-icons/av/replay';
+import './Timer.css';
 
-const TIMER_25 = 25 * 60 * 1000;
+const TIMER_25 = 1 * 60 * 1000;
 
 export default class Timer extends Component {
 
   constructor(props){
     super(props);
+    this.start = this.start.bind(this);
+    this.stop = this.stop.bind(this);
+    this.reset = this.reset.bind(this);
     this.state = {
       time: TIMER_25
     }
@@ -47,13 +56,27 @@ export default class Timer extends Component {
     let time = this.state.time;
     let seconds = Math.floor( (time/1000) % 60 );
     let minutes = Math.floor( (time/1000/60) % 60 );
+    let completed = 100 * (time / TIMER_25);
 
     return (
-      <div>
-        <p>{this.addZero(minutes)}:{this.addZero(seconds)}</p>
-        <button onClick={() => this.start()}>start</button>
-        <button onClick={() => this.stop()}>stop</button>
-        <button onClick={() => this.reset()}>reset</button>
+      <div className="Timer">
+        <CircularProgress
+          mode="determinate"
+          value={completed}
+          size={200}
+          thickness={7}
+          color="#A12B12"
+        />
+        <p className="time">{this.addZero(minutes)}:{this.addZero(seconds)}</p>
+        <FloatingActionButton onClick={this.start} className="action-button">
+          <ActionPlay />
+        </FloatingActionButton>
+        <FloatingActionButton onClick={this.stop} className="action-button">
+          <ActionPause />
+        </FloatingActionButton>
+        <FloatingActionButton onClick={this.reset} className="action-button">
+          <ActionReset />
+        </FloatingActionButton>
       </div>
     )
   }

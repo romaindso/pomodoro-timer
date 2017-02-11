@@ -1,0 +1,14 @@
+.Timer {
+  font-family: 'Roboto', sans-serif;
+  text-align: center;
+  margin-top: 50px;
+}
+
+.time {
+  position:relative;
+  top: -130px;
+}
+
+.action-button{
+  margin-right: 10px;
+}
