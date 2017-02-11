@@ -18,15 +18,14 @@
   </head>
   <body>
     <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
-
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
-
-      To begin the development, run `npm start`.
-      To create a production bundle, use `npm run build`.
-    -->
+    <script type="text/javascript">
+      if('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/sw.js').then(function(){
+          console.log("Service Worker : Registered");
+        }).catch(function(err){
+          console.log("Service Worker : Registration failed", err);
+        });
+      }
+    </script>
   </body>
 </html>

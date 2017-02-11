@@ -6,7 +6,7 @@ import ActionPause from 'material-ui/svg-icons/av/pause';
 import ActionReset from 'material-ui/svg-icons/av/replay';
 import './Timer.css';
 
-const TIMER_25 = 1 * 5 * 1000;
+const TIMER_25 = 25 * 60 * 1000;
 
 export default class Timer extends Component {
 
