@@ -1,0 +1,15 @@
+{
+  "short_name": "pomodo-timer",
+  "name": "Pomodor timer",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "64x64",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#A12B12",
+  "theme_color": "#FFFFFF"
+}
