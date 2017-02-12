@@ -9,7 +9,7 @@ self.addEventListener('install', function(e){
         './index.html',
         './favicon.ico',
         './manifest.json',
-        './static/js/main.7dfe3326.js',
+        './static/js/main.97a8d43f.js',
         './static/css/main.17df7ccb.css'
       ])
       .then(() => {
