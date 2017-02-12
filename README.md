@@ -13,6 +13,12 @@ How does it work ?
 ## Demo
 https://romaindso.github.io/pomodoro-timer/
 
+## Features
+
+* PWA capacities, works offline 
+* Material design with material-ui
+
+
 ## Installation
 Clone this project, then run in your console :
 ```bash
