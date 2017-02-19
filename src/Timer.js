@@ -71,7 +71,7 @@ export default class Timer extends Component {
             mode="determinate"
             value={completed}
             size={250}
-            thickness={10}
+            thickness={15}
             color="#A12B12"
           />
           <div className="time-wrapper">
